@@ -1,0 +1,27 @@
+
+.logo-image-container {
+    position: absolute;
+    bottom: 1rem; 
+    right: 3rem;
+    opacity: 0.5;
+}
+
+.logo-image-container img {
+    width: 200px;
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.90);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.90);
+	}
+}
