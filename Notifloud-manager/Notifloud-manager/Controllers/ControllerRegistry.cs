@@ -6,6 +6,10 @@ namespace Notifloud_manager.Controllers
     {
         public static void RegisterControllers(this WebApplication application)
         {
+            application.RegisterUI();
+        }
+
+        private static void RegisterUI(this WebApplication application) {
             application.Index();
             application.Assets();
         }
