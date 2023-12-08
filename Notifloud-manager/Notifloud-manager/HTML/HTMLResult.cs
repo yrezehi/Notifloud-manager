@@ -31,7 +31,7 @@ namespace UI.HTML
                 {"js", "text/javascript"},
                 {"css", "text/css"},
                 {"html", "text/html"},
-                {"png", "image/png"}
+                {"png", "image/png"},
             }[Path.GetExtension(fileName).TrimStart('.')];
         }
 

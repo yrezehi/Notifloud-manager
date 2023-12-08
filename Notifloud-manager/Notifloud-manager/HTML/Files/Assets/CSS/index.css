@@ -1,11 +1,7 @@
-@font-face {
-    src: url('../fonts/AROneSans.ttf') format('truetype');
-    font-family: 'AROneSans';
-    font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
-    font-family: 'AROneSans';
+    font-family: 'Poppins' !important;
     line-height: normal !important;
 }
 
