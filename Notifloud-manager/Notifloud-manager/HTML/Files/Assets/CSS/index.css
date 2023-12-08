@@ -16,6 +16,32 @@ body, html {
     margin: 0;
     overflow-y: auto;
     position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+[data-element="wrapper"] {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        'header header'
+        'side-bar main-content';
+    overflow: hidden;
+}
+
+nav {
+    grid-area: header;
+}
+
+aside {
+    grid-area: side-bar;
+}
+
+[data-element="main-container"] {
+    grid-area: main-content;
 }
 
 [data-element="background-wrapper"] {
@@ -23,6 +49,7 @@ body, html {
     width: 100vw;
     position: absolute;
     overflow: hidden;
+    filter: brightness(50%);
 }
 
 [data-element="background"] {
