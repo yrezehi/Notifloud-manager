@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <script src="assets/lib/tailwind/tailwind.js"></script>
 </head>
-    <body class="bg-gradient-to-r from-pink-300 to-purple-400">
-        <script src='assets/js/index.js'></script>
-    </body>
+<body>
+    <!-- svg: first layer -->
+    <svg class="h-[100vh] w-[100vw]"  xmlns='http://www.w3.org/2000/svg'>
+        <filter id='noiseFilter'>
+            <feTurbulence type='fractalNoise'
+                          baseFrequency='0.65'
+                          numOctaves='3'
+                          stitchTiles='stitch' />
+        </filter>
+        <rect width='100%' height='100%' filter='url(#noiseFilter)' />
+    </svg>
+    <script src='assets/js/index.js'></script>
+</body>
 </html>
