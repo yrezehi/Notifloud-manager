@@ -10,146 +10,61 @@
     <script src="assets/lib/tailwind/tailwind.js"></script>
 </head>
 <body>
+        <div data-element="background-wrapper">
+            <svg data-element="background">
+                <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                    <feTurbulence id="fluid" numOctaves="1" seed="1" baseFrequency="0.001 0.001" type="fractalNoise"></feTurbulence>
+                    <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="155" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                    <animate xlink:href="#fluid" attributeName="baseFrequency" dur="30s" values="0.001 0.001;0.004 0.006;0.001 0.003;0.005 0.003;0.003 0.004;0.001 0.001" keySplines="
+                             .52 .02 .62 .99;
+                             .52 .02 .62 .99;
+                             .52 .02 .62 .99;
+                             .52 .02 .62 .99;
+                             .52 .02 .62 .99" keyTimes="
+                           0;0.2;0.4;0.6;0.8;1" calcMode="spline" repeatCount="indefinite" />
+                </filter>
+            </svg>
+        </div>
 
-    <div class="wrapper-container relative max-h-screen">
-        <aside class="fixed inset-y-0 left-0 bg-white shadow-sm max-h-screen w-40">
-            <div class="flex flex-col justify-between h-full">
-                <div class="flex-grow">
-                    <div class="px-2 py-4 text-center border-b">
-                        <h1 class="text-xl font-bold leading-none">
-                            <img class="aspect-w-16 aspect-h-9" src="/imgs/logo.png">
-                        </h1>
-                    </div>
-                    <div class="p-4">
-                        <ul class="space-y-1">
-                            <li>
-                                <a href="/" class="flex justify-start items-center font-bold text-sm py-3 px-4 bg-yellow-200 rounded-xl text-yellow-900" "=" ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
-                                        <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"></path>
-                                    </svg>Insights
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Logs" class="flex justify-start items-center font-bold text-sm text-gray-900 py-3 px-4 bg-white hover:bg-yellow-50 rounded-xl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
-                                        <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z"></path>
-                                    </svg>History
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Health/Index" class="flex justify-start items-center bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 18 20">
-                                        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z"></path>
-                                    </svg>
-                                    Health
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="cursor-not-allowed flex justify-start items-center font-bold text-sm text-gray-900 py-3 px-4 bg-white hover:bg-yellow-50 rounded-xl">
-                                    <svg class="text-lg mr-4" width="1em" height="1em" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 16">
-                                        <path d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z"></path>
-                                    </svg>Live
-
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="cursor-not-allowed flex justify-start items-center bg-white hover:bg-yellow-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
-                                        <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"></path>
-                                    </svg>Report
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!--<div class="p-4 flex items-center justify-center w-100">
-                    <a href="javascript:void(0)" class="flex items-center justify-between w-[80%] h-9 px-4 rounded-xl bg-gray-900 text-gray-300 hover:text-white text-sm font-semibold transition">
-                        <svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 15">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 7.5h11m0 0L8 3.786M12 7.5l-4 3.714M12 1h3c.53 0 1.04.196 1.414.544.375.348.586.82.586 1.313v9.286c0 .492-.21.965-.586 1.313A2.081 2.081 0 0 1 15 14h-3" />
-                        </svg>
-                        Logout
-                    </a>
-                </div>-->
-            </div>
-        </aside>
-
-        <main role="main" class="ml-40 max-h-screen">
-
-
-            <div class="px-6 py-8 h-screen bg-yellow-50">
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-white rounded-3xl p-8 mb-5">
-                        <h2 class="text-2xl font-bold mb-4">Daily Brief</h2>
-                        <hr class="my-6">
-                        <div class="grid grid-cols-2 gap-x-20">
-                            <div>
-                                <h2 class="text-2xl font-bold mb-4">Stats</h2>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="col-span-2">
-                                        <div class="p-4 bg-green-100 rounded-xl">
-                                            <div class="font-bold text-xl text-gray-800 leading-none">
-                                                <p>Good day, Rooster!</p>
-                                                <p class="text-xs mt-2 text-gray-600">You have  issues on your systems</p>
-                                            </div>
-                                            <div class="mt-4">
-                                                <a href="/Logs" class="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-white text-gray-800 hover:text-green-500 text-sm font-semibold transition">
-                                                    Start tracking
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-4 bg-[#ffadad] rounded-xl text-gray-800 font-bold">
-                                        <div class="font-bold text-2xl leading-none"></div>
-                                        <div class="mt-2 text-gray-600">ERROR</div>
-                                    </div>
-                                    <div class="p-4 bg-yellow-100 rounded-xl text-gray-800 font-bold">
-                                        <div class="text-2xl leading-none"></div>
-                                        <div class="mt-2 text-gray-600">WARNINGS</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <h2 class="text-2xl font-bold mb-4">Previous Briefs</h2>
-                                <div class="space-y-4">
-                                    <div class="cursor-not-allowed p-4 bg-white border rounded-xl text-gray-800 space-y-2">
-                                        <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Yesterday</a>
-                                        <div class="flex items-center text-sm text-gray-600">
-                                            <svg width="0.75em" height="0.75em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"></path>
-                                            </svg><span class="text-xs">0% More errors than the day before</span>
-                                        </div>
-                                    </div>
-                                    <div class="cursor-not-allowed p-4 bg-white border rounded-xl text-gray-800 space-y-2">
-                                        <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Last Week</a>
-                                        <div class="flex items-center text-sm text-gray-600">
-                                            <svg width="0.75em" height="0.75em" fill="currentColor" class="text-gray-800 inline align-middle mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"></path>
-                                            </svg><span class="text-xs">0% Less errors than a week before</span>
-                                        </div>
-                                    </div>
-                                    <div class="cursor-not-allowed p-4 bg-white border rounded-xl text-gray-800 space-y-2">
-                                        <a href="javascript:void(0)" class="font-bold hover:text-yellow-800 hover:underline">Share The Breif</a>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="wrapper-container relative max-h-screen z-10 bg-[#10121B67] text-white">
+            <aside class="fixed inset-y-0 left-0 shadow-sm max-h-screen w-40">
+                <div class="flex flex-col justify-between h-full">
+                    <div class="flex-grow">
+                        <div class="p-4">
+                            <ul class="space-y-1">
+                                <li>
+                                    <a href="/" class="flex justify-start items-center py-3 px-4 rounded-xl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
+                                            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"></path>
+                                        </svg>
+                                        Tab
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Logs" class="flex justify-start items-center py-3 px-4 rounded-xl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="text-lg mr-4" viewBox="0 0 16 16">
+                                            <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z"></path>
+                                        </svg>Tab
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </aside>
 
-    </div>
+            <main role="main" class="ml-40 max-h-screen">
+                <div class="px-6 py-8 h-screen">
+                    <div class="max-w-4xl mx-auto">
+                        <div class=" rounded-3xl p-8 mb-5">
+                        </div>
+                    </div>
+                </div>
+            </main>
 
-    <!-- svg: first layer -->
-    <svg class="h-[100vh] w-[100vw]" xmlns='http://www.w3.org/2000/svg'>
-        <filter id='noiseFilter'>
-            <feTurbulence type='fractalNoise'
-                          baseFrequency='0.65'
-                          numOctaves='3'
-                          stitchTiles='stitch' />
-        </filter>
-        <rect width='100%' height='100%' filter='url(#noiseFilter)' />
-    </svg>
-    <script src='assets/js/index.js'></script>
+        </div>
+
+        <!-- svg: first layer -->
+        <script src='assets/js/index.js'></script>
 </body>
 </html>
