@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.Models.Abstracts.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using RealseEM.Models.Abstracts.Interfaces;
 using RealseEM.Repositories.Abstracts;
 using System;
 using System.Reflection;
 
-namespace RealseEM.Utils
+namespace Core.Utils
 {
     public static class ReflectionUtil
     {
@@ -53,7 +53,7 @@ namespace RealseEM.Utils
             if (Equals(argument, default(T)))
                 return true;
 
-            if(argument is int && Convert.ToInt32(argument) == 0)
+            if (argument is int && Convert.ToInt32(argument) == 0)
                 return true;
 
             Type methodType = typeof(T);

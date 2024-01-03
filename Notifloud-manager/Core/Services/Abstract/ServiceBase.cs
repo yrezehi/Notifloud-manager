@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Reflection;
-using RealseEM.Models.Abstracts.Interfaces;
-using RealseEM.Utils;
 using RealseEM.Repositories.Extensions;
-using RealseEM.Models.DTO;
-using RealseEM.Services.Abstract.Interfaces;
 using RealseEM.Repositories.Abstracts.Interfaces;
 using static RealseEM.Repositories.Extensions.LinqExtensions;
+using Core.Services.Abstract.Interfaces;
+using Core.Models.DTO;
+using Core.Utils;
+using Core.Models.Abstracts.Interfaces;
 
-namespace RealseEM.Services.Abstract
+namespace Core.Services.Abstract
 {
     public class ServiceBase<T> : IDisposable, IServiceBase<T> where T : class
     {
@@ -39,7 +39,7 @@ namespace RealseEM.Services.Abstract
 
         public virtual async Task<PaginateDTO<T>> Paginate(int currentPage, Expression<Func<T, bool>>? expression = null)
         {
-            var items = DBSet.ConditionalWhere(expression != null, expression!).Skip(currentPage * 10).Take(DEFAULT_PAGE_SIZE);//.IncludeAllProperties();
+            var items = DBSet.ConditionalWhere(expression != null, expression!).Skip(currentPage * 10).Take(DEFAULT_PAGE_SIZE);
             var itemsCount = await DBSet.ConditionalCount(expression!);
 
             return new PaginateDTO<T>()
@@ -51,7 +51,6 @@ namespace RealseEM.Services.Abstract
             };
         }
 
-        // meant to be used by external API calls, that's why there is an extra validation layer
         public async Task<IEnumerable<T>> SearchByProperty<TValue>(string propertyName, TValue value, int? page)
         {
             // TODO: nah, fix you laz..

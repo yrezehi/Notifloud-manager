@@ -1,7 +1,7 @@
-﻿using RealseEM.Models.DTO;
+﻿using Core.Models.DTO;
 using System.Linq.Expressions;
 
-namespace RealseEM.Services.Abstract.Interfaces
+namespace Core.Services.Abstract.Interfaces
 {
     public interface IServiceBase<T> where T : class
     {

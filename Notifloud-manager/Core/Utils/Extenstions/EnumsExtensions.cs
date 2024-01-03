@@ -1,16 +1,16 @@
-﻿using RealseEM.Models.DTO;
+﻿using Core.Models.DTO;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace RealseEM.Utils.Extenstions
+namespace Core.Utils.Extenstions
 {
     public static class EnumsExtensions
     {
         public static int GetId(this Enum @enum) =>
             Convert.ToInt32(@enum);
 
-        public static string GetDisplayName(this Enum @enum) =>      
+        public static string GetDisplayName(this Enum @enum) =>
             @enum.GetType()
                 .GetField(@enum.ToString())!
                 .GetCustomAttribute<DisplayAttribute>()!.Name!;
