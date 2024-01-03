@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Reflection;
-using RealseEM.Repositories.Extensions;
-using RealseEM.Repositories.Abstracts.Interfaces;
-using static RealseEM.Repositories.Extensions.LinqExtensions;
 using Core.Services.Abstract.Interfaces;
 using Core.Models.DTO;
 using Core.Utils;
 using Core.Models.Abstracts.Interfaces;
+using Core.Repositories.Abstracts.Interfaces;
+using Core.Repositories.Extensions;
 
 namespace Core.Services.Abstract
 {
