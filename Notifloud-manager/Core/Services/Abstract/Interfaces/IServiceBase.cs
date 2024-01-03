@@ -1,0 +1,30 @@
+﻿using RealseEM.Models.DTO;
+using System.Linq.Expressions;
+
+namespace RealseEM.Services.Abstract.Interfaces
+{
+    public interface IServiceBase<T> where T : class
+    {
+        IEnumerable<T> Find(Expression<Func<T, bool>> expression);
+
+        Task<IEnumerable<T>> GetAll(int? page = null);
+
+        Task<PaginateDTO<T>> Paginate(int currentPage, Expression<Func<T, bool>>? expression);
+
+        Task<T> FindById(int id);
+
+        bool Any(Expression<Func<T, bool>> expression);
+
+        Task<T> FindByProperty<TValue>(Expression<Func<T, TValue>> selector, TValue value);
+
+        Task<IEnumerable<T>> SearchByProperty<TValue>(string propertyName, TValue value, int? page);
+
+        Task<T?> NullableFindById(int id);
+
+        Task<T> Delete(int id);
+
+        Task<T> Update(T entityToUpdate);
+
+        Task<T> Create(T entityDTO);
+    }
+}
