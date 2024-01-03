@@ -1,4 +1,6 @@
-﻿namespace UI.HTML
+﻿using UI.HTML;
+
+namespace Notifloud_manager.HTML
 {
     public static class ResultsExtension
     {

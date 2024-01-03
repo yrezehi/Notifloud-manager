@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace UI.HTML
+namespace Notifloud_manager.HTML
 {
     public class HTMLResult : IResult
     {
@@ -9,7 +9,8 @@ namespace UI.HTML
 
         private readonly string FileName;
 
-        public HTMLResult(string fileName) {
+        public HTMLResult(string fileName)
+        {
             FileName = fileName.Trim();
         }
 
@@ -39,13 +40,13 @@ namespace UI.HTML
         {
             return LoadHTML(string.IsNullOrEmpty(requestPath) ? DEFAULT_INDEX_PAGE_NAME : requestPath);
         }
-        
+
         private string LoadHTML(string fileName)
         {
-            string filePath = this.BuildHTMLFilePath(fileName);
+            string filePath = BuildHTMLFilePath(fileName);
 
             if (!Path.Exists(filePath))
-                filePath = this.BuildHTMLFilePath(DEFAULT_INDEX_PAGE_NAME);
+                filePath = BuildHTMLFilePath(DEFAULT_INDEX_PAGE_NAME);
 
             return LoadHTMLAsString(filePath);
         }
