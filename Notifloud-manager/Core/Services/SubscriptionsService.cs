@@ -11,6 +11,9 @@ namespace Core.Services
         public SubscriptionsService(IUnitOfWork unitOfWork) : base(unitOfWork) =>
             PublicKey = "X83GLEFW933";
            
-        
+        public void Send(string content)
+        {
+            
+        }
     }
 }
