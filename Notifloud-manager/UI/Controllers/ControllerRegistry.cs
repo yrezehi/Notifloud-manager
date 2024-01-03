@@ -1,4 +1,8 @@
-﻿using Notifloud_manager.HTML;
+﻿using Core.Models;
+using Core.Services;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Notifloud_manager.HTML;
 
 namespace Notifloud_manager.Controllers
 {
@@ -9,9 +13,12 @@ namespace Notifloud_manager.Controllers
             application.RegisterUI();
         }
 
-        private static void RegisterUI(this WebApplication application) {
+        private static void RegisterUI(this WebApplication application) {            
             application.Index();
             application.Assets();
+
+            application.Subscribe();
+            application.Subscriptions();
         }
 
         private static void Index(this WebApplication application) =>
@@ -19,5 +26,11 @@ namespace Notifloud_manager.Controllers
 
         private static void Assets(this WebApplication application) =>
             application.MapGet("/Assets/{*asset}", (string asset) => Results.Extensions.Serve("Assets\\" + asset));
+
+        private static void Subscribe(this WebApplication application) =>
+            application.MapPost("/Subscriptions/Subscribe", async ([FromBody] Subscription subscription, SubscriptionsService service) => await service.Create(subscription));
+
+        private static void Subscriptions(this WebApplication application) =>
+           application.MapPost("/Subscriptions", async ([FromBody] Subscription subscription, SubscriptionsService service) => await service.GetAll());
     }
 }
