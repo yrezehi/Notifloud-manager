@@ -7,9 +7,7 @@
         notification.error("Something Went Wrong!");
         return { success: false, error: error };
     };
-
     return function () {
-
         async function getRequest(endpoint) {
             return fetch(endpoint, {
                 method: 'GET',
@@ -46,7 +44,6 @@
                 .then((data) => buildSuccessResponse(response.status, data))
                 .catch(error => handleAndBuildErrorResponse(error));
         }
-
         return Object.freeze({
             getRequest,
             postRequest,

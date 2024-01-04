@@ -35,6 +35,9 @@ namespace Notifloud_manager.Controllers
         private static void Subscriptions(this WebApplication application) =>
            application.MapGet("/Subscriptions", async (SubscriptionsService service) => await service.GetAll());
 
+        private static void PublicKey(this WebApplication application) =>
+           application.MapGet("/Subscriptions/PublicKey", (SubscriptionsService service) => service.GetPublicKey());
+
         private static void Notification(this WebApplication application) =>
             application.MapPost("/Notifications", ([FromBody] Notification notification, SubscriptionsService service) => service.Enqueue(notification));
     }
