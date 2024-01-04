@@ -1,6 +1,7 @@
 var notificationManager = function () {
 
-    var PUSH_NOTIFICATION_ENPOINT = "notification/subscriptions";
+    var PUSH_NOTIFICATION_ENPOINT = "/notification/subscriptions";
+    var SERVICE_WORKER_SCOPE = "/js/service-workers/";
 
     var publicKey = null;
 
@@ -8,7 +9,7 @@ var notificationManager = function () {
         var workerInstance = null;
 
         function register(endpoint) {
-            navigator.serviceWorker.register(endpoint)
+            navigator.serviceWorker.register(endpoint, { scope: SERVICE_WORKER_SCOPE })
                 .then(function (registeration) {
                     workerInstance = registeration;
                     console.info("Worker is registered!");

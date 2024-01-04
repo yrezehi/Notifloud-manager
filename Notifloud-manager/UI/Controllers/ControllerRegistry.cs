@@ -1,7 +1,6 @@
 ﻿using Core.Models;
 using Core.Services;
 using Core.Services.Queue;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Notifloud_manager.HTML;
 
@@ -18,10 +17,10 @@ namespace Notifloud_manager.Controllers
             application.Index();
             application.Assets();
 
-            application.Subscribe();
+            /*application.Subscribe();
             application.Subscriptions();
 
-            application.Notification();
+            application.Notification();*/
         }
 
         private static void Index(this WebApplication application) =>

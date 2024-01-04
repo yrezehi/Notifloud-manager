@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="HTML\Files\Assets\js\service-workers\" />
+  </ItemGroup>
+
 </Project>

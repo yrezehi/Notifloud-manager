@@ -23,26 +23,6 @@ body, html {
     -ms-user-select: none;
     user-select: none;
 }
-[data-element="wrapper"] {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        'header header'
-        'side-bar main-content';
-    overflow: hidden;
-}
-
-nav {
-    grid-area: header;
-}
-
-aside {
-    grid-area: side-bar;
-}
-
-[data-element="main-container"] {
-    grid-area: main-content;
-}
 
 [data-element="background-wrapper"] {
     height: 100vh;
@@ -64,4 +44,3 @@ aside {
     filter: url("#turbulence");
     overflow: hidden;
 }
-

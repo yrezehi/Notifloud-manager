@@ -10,45 +10,47 @@
     <script src="assets/lib/tailwind/tailwind.js"></script>
 </head>
 <body>
-        <div data-element="background-wrapper">
-            <svg data-element="background">
-                <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-                    <feTurbulence id="fluid" numOctaves="1" seed="1" baseFrequency="0.001 0.001" type="fractalNoise"></feTurbulence>
-                    <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="155" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
-                    <animate xlink:href="#fluid" attributeName="baseFrequency" dur="30s" values="0.001 0.001;0.004 0.006;0.001 0.003;0.005 0.003;0.003 0.004;0.001 0.001" keySplines="
+    <div data-element="background-wrapper">
+        <svg data-element="background">
+            <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                <feTurbulence id="fluid" numOctaves="1" seed="1" baseFrequency="0.001 0.001" type="fractalNoise"></feTurbulence>
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="155" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                <animate xlink:href="#fluid" attributeName="baseFrequency" dur="30s" values="0.001 0.001;0.004 0.006;0.001 0.003;0.005 0.003;0.003 0.004;0.001 0.001" keySplines="
                              .52 .02 .62 .99;
                              .52 .02 .62 .99;
                              .52 .02 .62 .99;
                              .52 .02 .62 .99;
                              .52 .02 .62 .99" keyTimes="
                            0;0.2;0.4;0.6;0.8;1" calcMode="spline" repeatCount="indefinite" />
-                </filter>
-            </svg>
-        </div>
+            </filter>
+        </svg>
+    </div>
 
-        <div data-element="wrapper" class="relative max-h-screen z-10 bg-[#10121B67] w-[100vw] h-[100vh] text-white">
-            <nav class="border-b-[1px] border-[#6c728c40]">
-                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap">Notifloud</span>
-                    </a>
-                    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
-                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-                            <li>
-                                <a href="#" class="block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:p-0" aria-current="page">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
+    <div data-element="wrapper" class="flex relative max-h-screen z-10 bg-[#10121B67] w-[100vw] h-[100vh] text-white flex-col overflow-x-hidden h-screen">
+        <nav class="border-b-[1px] border-[#6c728c40]">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap">Notifloud</span>
+                </a>
+                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                        <li>
+                            <a href="#" class="block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:p-0" aria-current="page">Logout</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
-            <aside class="inset-y-0 left-0 shadow-sm w-60 border-r-[1px] border-[#6c728c40]">
+        <div class="flex flex-1 flex-grow">
+
+            <aside class="inset-y-0 left-0 shadow-sm border-r-[1px] border-[#6c728c40]">
                 <div class="flex flex-col justify-between">
                     <div class="flex-grow">
                         <div class="p-4">
@@ -99,7 +101,7 @@
                 </div>
             </aside>
 
-            <main data-element="main-container" role="main" class="ml-40 h-[100%] w-[100%]">
+            <main data-element="main-container" role="main" class="h-[100%] w-[100%]">
                 <div class="px-6 py-8">
                     <div class="max-w-4xl mx-auto">
                         <div class=" rounded-3xl p-8 mb-5">
@@ -107,9 +109,10 @@
                     </div>
                 </div>
             </main>
-
         </div>
 
-        <script src='assets/js/index.js'></script>
+    </div>
+
+    <script src='assets/js/index.js'></script>
 </body>
 </html>

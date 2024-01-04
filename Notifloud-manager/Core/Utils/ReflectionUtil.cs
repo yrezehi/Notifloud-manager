@@ -1,7 +1,6 @@
 ﻿using Core.Models.Abstracts.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using RealseEM.Repositories.Abstracts;
 using System;
 using System.Reflection;
 
